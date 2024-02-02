@@ -1,0 +1,47 @@
+.navbar {
+    background-color: rgb(37, 37, 37);
+    color: #eee;
+    height: 5vh;
+}
+.container {
+    box-sizing: border-box;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 7px;
+}
+
+.container-form {
+    display: flex;
+    gap: 10px;
+}
+.logo {
+    font-size: 23px;
+}
+
+#search {
+    background-color: rgb(60, 60, 60);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+    padding: 2px 5px;
+}
+#search:focus, #search:active {
+    outline: none;
+}
+#search-action {
+    background-color: rgb(60, 60, 60);
+    border: 0.5px solid rgb(255, 251, 0);
+    color: rgb(255, 251, 0);
+    border-radius: 10px;
+    transition: 0.5s ease-in-out;
+}
+#search-action:hover {
+    background-color: rgb(255, 251, 0);
+    color: rgb(60, 60, 60);
+}
+#search-action:focus {
+    border: 1px solid rgb(255, 251, 0);
+}
