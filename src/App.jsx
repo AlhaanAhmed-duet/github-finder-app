@@ -2,6 +2,7 @@
 import React from 'react';
 import Navbar from './components/common/Navbar/main'
 import './App.css';
+import MainBody from './components/common/Main/main';
 
 class App extends React.Component {
   // Renders the components
@@ -10,6 +11,7 @@ class App extends React.Component {
     return (
       <>
           <Navbar />
+          <MainBody />
       </>
     );
   }
