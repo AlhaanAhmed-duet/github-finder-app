@@ -1,47 +1,32 @@
 import React from "react";
 import './style.css'
+import axios from "axios";
 class MainBody extends React.Component {
     state = {
-        users : [],
-        loading: false
+        users: [],
+        splashScreenLoading: false
     }
-    componentDidMount() {
-        this.setState(this.state.users = [
-            {
-                login: "mojombo",
-                id: 1,
-                html_url: "https://github.com/mojombo",
-                avatar_url: "https://avatars.githubusercontent.com/u/1?v=4"
-            },
-            {
-                login: "defunkt",
-                id: 2,
-                html_url: "https://github.com/defunkt",
-                avatar_url: "https://avatars.githubusercontent.com/u/2?v=4",
-            },
-            {
-                login: "pjhyett",
-                id: 3,
-                html_url: "https://github.com/pjhyett",
-                avatar_url: "https://avatars.githubusercontent.com/u/3?v=4"
-            }
-        ])
+    async componentDidMount() {
+        this.setState({splashScreenLoading: true});
+        const url = "https://api.github.com/users";
+        const getResponse = await axios.get(url);
+        this.setState({users: getResponse.data});
+        console.log(this.state.users);
     }
 
     render() {
         return (
             <main>
-                <div className="container">
-                        {this.state.users.map(user => {
+                <div className="container-main">
+                {this.state.users.map(user => {
                             return (
                             <div className="user-card">
                                  <img src={user.avatar_url} alt="profile-picture"/>
                                  <div className="username">{user.login}</div>
-                                 <a href={user.html_url}>Profile</a>
+                                 <a href={user.html_url} target="_blank">Profile</a>
                             </div>
                             )
                         })}
-                                   
                 </div>
             </main>
         )
